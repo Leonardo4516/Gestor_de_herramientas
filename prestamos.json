@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "usuario": "Juan",
+        "herramienta_id": 1,
+        "cantidad": 2,
+        "fecha_inicio": "2026-01-21",
+        "fecha_devolucion": "03/02/2026",
+        "estado": "devuelto",
+        "observaciones": "La necesito"
+    }
+]

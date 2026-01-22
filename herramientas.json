@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "nombre": "Martillo",
+        "categoria": "contrucci\u00f3n",
+        "cantidad": 10,
+        "estado": "activa",
+        "valor": 20000.0
+    },
+    {
+        "id": 2,
+        "nombre": "Llave inglesa",
+        "categoria": "contrucci\u00f3n",
+        "cantidad": 5,
+        "estado": "activa",
+        "valor": 15000.0
+    }
+]

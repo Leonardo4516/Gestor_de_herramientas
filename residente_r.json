@@ -1,0 +1,16 @@
+[
+    {
+        "Nombres": "Juan",
+        "Apellidos": "Hern\u00e1ndez",
+        "Telefono": "3158745691",
+        "Direcci\u00f3n": "Cra B",
+        "Rol": "Residente"
+    },
+    {
+        "Nombres": "Samuel",
+        "Apellidos": "Gelvez",
+        "Telefono": "3164785931",
+        "Direcci\u00f3n": "Cra C",
+        "Rol": "Residente"
+    }
+]
