@@ -2,6 +2,7 @@ import json
 import os
 from datetime import date
 import menus
+from logs import anotar_evento
 
 archivo_prestamos = "prestamos.json"
 archivo_herramientas = "herramientas.json"
@@ -59,6 +60,8 @@ def registrar_prestamo():
 
             guardar_datos(archivo_prestamos, prestamos)
 
+            anotar_evento("PRÉSTAMO", f"Préstamo registrado para la herramienta ID {herramienta_id}.", usuario)
+
             print("Préstamo registrado correctamente.")
             return
         
@@ -87,6 +90,8 @@ def devolver_prestamo():
 
             guardar_datos(archivo_herramientas, herramientas)
             guardar_datos(archivo_prestamos, prestamo)
+
+            anotar_evento("DEVOLUCIÓN", f"Préstamo ID {prestamo_id} devuelto.", p["usuario"])
 
             print("Préstamo devuelto correctamente.")
             return

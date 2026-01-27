@@ -1,6 +1,6 @@
 import json
 import os 
-
+from logs import anotar_evento
 
 def registro_usuario():
 
@@ -19,9 +19,12 @@ def registro_usuario():
         print("\n2. Residente.\n")
         tipo = int(input("Ingrese una opción entre 1 y 2: \n"))
     
+    except TypeError: 
+        print("El valor ingresado no corresponde. Intente de nuevo.")
+        registro_usuario()
     except ValueError:
         print("El valor ingresado no corresponde. Intente de nuevo.")
-        registro_usuario
+        registro_usuario()
     except KeyboardInterrupt:
         print("Salida forzada. Cerrando proceso...")
     except json.JSONDecodeError:
@@ -32,8 +35,8 @@ def registro_usuario():
     info = {
             "Nombres" : nombres,
             "Apellidos" : apellidos,
-            "Telefono" : telefono,
-            "Dirección" : direccion,
+            "Teléfono" : telefono,
+            "Dirección" : direccion
         }
 
     admin_l = []
@@ -86,6 +89,8 @@ def registro_usuario():
             with open("contraseñas_admin.json", "w", encoding="utf-8") as f:
                 json.dump(contra_admin_l, f, indent=4)
 
+            anotar_evento("REGISTRO", "Nuevo administrador registrado.", nombres)
+
             print("Registro realizado con éxito.")
 
         else:
@@ -129,6 +134,8 @@ def registro_usuario():
 
         with open("contraseñas_residente.json", "w", encoding="utf-8") as f:
                 json.dump(contra_residente_l, f, indent=4)
+        
+        anotar_evento("REGISTRO", "Nuevo residente registrado.", nombres)
 
         print("Registro realizado con éxito.")
     

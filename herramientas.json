@@ -3,8 +3,8 @@
         "id": 1,
         "nombre": "Martillo",
         "categoria": "contrucci\u00f3n",
-        "cantidad": 10,
-        "estado": "activa",
+        "cantidad": 8,
+        "estado": "fuera de servicio",
         "valor": 20000.0
     },
     {

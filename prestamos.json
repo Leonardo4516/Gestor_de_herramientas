@@ -8,5 +8,15 @@
         "fecha_devolucion": "03/02/2026",
         "estado": "devuelto",
         "observaciones": "La necesito"
+    },
+    {
+        "id": 2,
+        "usuario": "Juan",
+        "herramienta_id": 1,
+        "cantidad": 2,
+        "fecha_inicio": "2026-01-23",
+        "fecha_devolucion": "12-11-2026",
+        "estado": "activo",
+        "observaciones": "La necesito"
     }
 ]

@@ -1,6 +1,7 @@
 import json
 import os
 import menus
+from logs import anotar_evento
 
 asd = "herramientas.json"
 
@@ -38,6 +39,8 @@ def gestion_admin():
 
     herramientas.append(herramienta)
     guardar_herramientas(asd, herramientas)
+
+    anotar_evento("CREACIÓN", "Nueva herramienta agregada.", herramienta["nombre"])
 
     print("\nHerramienta creada correctamente.")
 
@@ -114,10 +117,16 @@ def eliminar_herramienta():
 
             if opcion == "e":
                 herramientas.remove(a)
+
+                anotar_evento("ELIMINACIÓN", "Herramienta eliminada.", a["nombre"])
+
                 print("Herramienta eliminada.")
                 menus.menu_admin()
             elif opcion == "i":
                 a["estado"] = "fuera de servicio"
+                
+                anotar_evento("INACTIVACIÓN", "Herramienta inactivada.", a["nombre"])
+
                 print("Herramienta inactivada.")
                 
             guardar_herramientas(asd, herramientas)

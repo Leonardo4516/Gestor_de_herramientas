@@ -2,6 +2,7 @@ import json
 import os
 import menus
 import prestamos_admin
+from logs import anotar_evento
 
 def eliminar_us():
 
@@ -57,6 +58,13 @@ def eliminar_us():
 
         with open("contraseñas_residente.json", "w", encoding="utf-8") as i:
             json.dump(contra_actualizada, i, indent=4)
+
+        anotar_evento("ELIMINACIÓN", "Usuario eliminado del sistema.", user)
+
+        print("Usuario eliminado correctamente.")
+    elif res == "n":
+        print("Operación cancelada. Volviendo al menú.")
+        menus.menu_admin()
 
 def cambiar_info():
 
@@ -119,7 +127,10 @@ def cambiar_info():
             except Exception as e:
                 print(f"Error inesperado: {e}. Redirigiendo al menú.")
                 menus.menu_admin()
+
+            anotar_evento("MODIFICACIÓN", "Nombre de usuario modificado.", nombre_n)
         cambiar_nombre()
+
     elif res == 2:
         def cambiar_apellidos():
             try:
@@ -151,6 +162,11 @@ def cambiar_info():
             except Exception as e:
                 print(f"Error inesperado: {e}. Redirigiendo al menú.")
                 menus.menu_admin()
+            
+            anotar_evento("MODIFICACIÓN", "Apellidos de usuario modificado.", apellido_n)
+
+            print("Apellidos cambiados correctamente.")
+
         cambiar_apellidos()
     elif res == 3:
         def cambiar_telefono():
@@ -183,6 +199,11 @@ def cambiar_info():
             except Exception as e:
                 print(f"Error inesperado: {e}. Redirigiendo al menú.")
                 menus.menu_admin()
+
+            anotar_evento("MODIFICACIÓN", "Teléfono de usuario modificado.", telefono_n)
+
+            print("Teléfono cambiado correctamente.")
+            
             cambiar_telefono()
             
     elif res == 4:
@@ -216,7 +237,12 @@ def cambiar_info():
             except Exception as e:
                 print(f"Error inesperado: {e}. Redirigiendo al menú.")
                 menus.menu_admin()
-            cambiar_direccion()
+
+            anotar_evento("MODIFICACIÓN", "Dirección de usuario modificado.", apellido_n)
+
+            print("Dirección cambiada correctamente.")
+
+        cambiar_direccion()
 
 def crear_us():
 
@@ -270,6 +296,8 @@ def crear_us():
 
         with open("contraseñas_residente.json", "w", encoding="utf-8") as r:
             json.dump(lista_contra, r, indent=4)
+
+        anotar_evento("CREACIÓN", "Nuevo residente registrado.", nuevo_n)
 
         print("\nUsuario guardado correctamente.")
         menus.menu_admin()

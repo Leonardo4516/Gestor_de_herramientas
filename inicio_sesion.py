@@ -37,7 +37,7 @@ def inicio_sesion():
                     
                     if comprobante_user is None:
                         print("Usuario no encontrado.")
-                        return
+                        inicio_sesion()
                     
                     confirmar = comprobante_user["Contraseña"]
 
@@ -47,7 +47,7 @@ def inicio_sesion():
                         menus.menu_admin()
                     else:
                         print("\nUsuario o contraseña incorrecto. Intente de nuevo.")
-                        inicio_sesion
+                        inicio_sesion()
                     
                 except TypeError:
                     print("Algún valor fue ingresado incorrectamente. Intente de nuevo.")

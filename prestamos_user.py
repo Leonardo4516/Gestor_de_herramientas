@@ -3,6 +3,8 @@ import os
 import prestamos_admin
 import gestion_herramientas
 import menus
+from logs import anotar_evento
+
 archivo_prestamo = "prestamos.json"
 
 archivo_herramientas = "herramientas.json"
