@@ -1,0 +1,9 @@
+[
+    {
+        "id": 1,
+        "nombre": "Martillo",
+        "inicio_rep": "20",
+        "fin_rep": "20",
+        "observaciones": "mango"
+    }
+]
