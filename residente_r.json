@@ -12,5 +12,12 @@
         "Telefono": "314",
         "Direcci\u00f3n": "ra",
         "Rol": "Residente"
+    },
+    {
+        "Nombres": "David",
+        "Apellidos": "Fernandez",
+        "Telefono": "314",
+        "Direcci\u00f3n": "cra",
+        "Rol": "Residente"
     }
 ]
