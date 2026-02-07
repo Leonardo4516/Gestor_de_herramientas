@@ -96,6 +96,15 @@ def inicio_sesion():
         except ValueError:
             print("\nAlgún valor esta mal ingresado. Intente de nuevo.")
             inicio_sesion()
+        except TypeError:
+            print("\nAlgún valor esta mal ingresado. Intente de nuevo.")
+            inicio_sesion()
+        except Exception as e:
+            print(f"\nOcurrió un error inesperado: {e}")
+            inicio_sesion()
+        except KeyboardInterrupt:
+            print("\nSaliendo del programa...")
+            sys.exit()
         
 if __name__ == "__main__":
     inicio_sesion()
