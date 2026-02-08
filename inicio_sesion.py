@@ -3,6 +3,7 @@ import json
 import os
 import menus
 import sys
+import logs
 
 def inicio_sesion():
 
@@ -44,9 +45,11 @@ def inicio_sesion():
 
                     if contra == confirmar:
                         print("\nInicio de sesión correcto.")
+                        logs.anotar_evento("INICIO DE SESIÓN", "Un administrador ha iniciado sesión.", user)
                         menus.menu_admin()
                     else:
                         print("\nUsuario o contraseña incorrecto. Intente de nuevo.")
+                        logs.anotar_evento("INICIO DE SESIÓN INCORRECTO", "Un admin ha tratado iniciado sesión.", user)
                         inicio_sesion()
                     
                 except TypeError:
@@ -77,9 +80,11 @@ def inicio_sesion():
                     confirmar = comprobante_user["Contraseña"]
                     if contra == confirmar:
                         print("\nInicio de sesión correcto.")
+                        logs.anotar_evento("INICIO DE SESIÓN", "Un usuario ha iniciado sesión.", user)
                         menus.menu_residente()
                     else:
                         print("\nUsuario o contraseña incorrecto. Intente de nuevo.")
+                        logs.anotar_evento("INICIO DE SESIÓN INCORRECTO", "Un usuario ha tratado iniciado sesión.", user)
                         inicio_sesion()
                 except TypeError:
                     print("\nAlgún valor fue ingresado incorrectamente. Intente de nuevo.")
