@@ -3,7 +3,7 @@ import gestion_usuarios
 import prestamos_admin
 import prestamos_user
 import inicio_sesion
-import registros_reparacion
+#import registros_reparacion
 
 def menu_admin():
 
@@ -22,8 +22,8 @@ def menu_admin():
         gestion_herramientas.menu()
     elif res == 3:
         prestamos_admin.menu()
-    elif res == 4:
-        registros_reparacion.menu()
+    #elif res == 4:
+    #    registros_reparacion.menu()
     elif res == 0:
         print("\nSaliendo del menú.")
         inicio_sesion.inicio_sesion()
