@@ -53,3 +53,8 @@ El sistema utiliza archivos **JSON** para almacenar la información de manera lo
 ## ⚠️ Notas Técnicas
 * **Validaciones**: El código incluye bloques `try-except` para manejar errores de entrada de datos (ValueError) y archivos no encontrados.
 * **ID Automático**: Las herramientas y préstamos generan sus identificadores de forma incremental basándose en los datos existentes.
+
+
+# ARCHIVO MARKDOWN
+
+https://drive.google.com/file/d/1MehqPAfHe536uin6slYMzkvEnEDlKb7e/view?usp=sharing
