@@ -1,60 +1,72 @@
-# 🛠️ Sistema de Gestión de Herramientas y Préstamos
+# Sistema de Gestión de Herramientas y Préstamos
 
-Este sistema es una aplicación de consola desarrollada en **Python** diseñada para administrar el inventario de herramientas, el registro de usuarios y el control de préstamos de una comunidad o taller.
+Sistema de consola en **Python** para administrar inventario de herramientas, registro de usuarios y control de préstamos en una comunidad o taller.
 
-## 📋 Estructura de Módulos
+## Estructura del Proyecto
 
-El proyecto se organiza en los siguientes archivos interconectados:
+```
+├── main.py                  # Punto de entrada principal
+├── src/                     # Módulos de lógica
+│   ├── __init__.py          # Inicializador del paquete
+│   ├── inicio_sesion.py     # Autenticación de usuarios
+│   ├── sesion_logica.py     # Registro de nuevos usuarios
+│   ├── menus.py             # Menús de navegación por rol
+│   ├── gestion_herramientas.py  # CRUD de herramientas
+│   ├── gestion_usuarios.py  # CRUD de usuarios residentes
+│   ├── prestamos_admin.py   # Gestión de préstamos (admin)
+│   ├── prestamos_user.py    # Interfaz de préstamos (residente)
+│   ├── logs.py              # Registro de eventos y respaldos
+│   └── consulta_herramientas.py  # (en desuso)
+├── data/                    # Archivos de persistencia
+│   ├── herramientas.json
+│   ├── prestamos.json
+│   ├── admin_r.json
+│   ├── residente_r.json
+│   ├── contraseñas_admin.json
+│   └── contraseñas_residente.json
+└── registros/               # Archivos de log
+    └── eventos.log
+```
 
-* **`inicio_sesion.py`**: Punto de entrada principal que gestiona el acceso de administradores y residentes.
-* **`menus.py`**: Define las interfaces de navegación para los diferentes roles del sistema.
-* **`gestion_herramientas.py`**: Contiene la lógica para crear, listar, buscar, actualizar y eliminar herramientas.
-* **`gestion_usuarios.py`**: Permite al administrador gestionar los datos de los residentes (cambio de info, eliminación y listado).
-* **`prestamos_admin.py`**: Módulo central para registrar salidas de herramientas, devoluciones y ver el historial.
-* **`prestamos_user.py`**: Interfaz simplificada para que los residentes soliciten y devuelvan herramientas.
-* **`sesion_logica.py`**: Maneja el registro inicial de nuevos usuarios y la asignación de roles.
+## Requisitos y Ejecución
 
----
+1. Python 3.x instalado.
+2. Ejecutar desde la raíz del proyecto:
 
-## 🚀 Requisitos y Ejecución
+```bash
+python main.py
+```
 
-1.  **Instalación**: Asegúrate de tener instalado Python 3.x.
-2.  **Archivos**: Todos los archivos `.py` deben estar en la misma carpeta raíz.
-3.  **Ejecución**: Abre la terminal en Visual Studio Code y ejecuta:
-    ```bash
-    python inicio_sesion.py
-    ```
-
----
-
-## 🔑 Funcionalidades por Rol
+## Funcionalidades por Rol
 
 ### Administrador
-* **Gestión de Inventario**: Puede añadir herramientas con ID automático, cantidad, categoría y estado.
-* **Control de Usuarios**: Capacidad para modificar nombres, teléfonos o direcciones, y eliminar registros de la base de datos.
-* **Supervisión de Préstamos**: Registra préstamos verificando el stock disponible y gestiona las devoluciones para restaurar el inventario.
-* **Seguridad**: Requiere una clave especial (`456`) para el registro de cuenta administrativa.
+- **Gestión de inventario**: Crear, listar, buscar, actualizar y eliminar herramientas con ID automático, cantidad, categoría y estado.
+- **Control de usuarios**: Crear, modificar y eliminar residentes.
+- **Supervisión de préstamos**: Registrar préstamos con verificación de stock, gestionar devoluciones y listar historial.
+- **Seguridad**: Clave especial (`456`) para registro de cuenta administrativa.
 
 ### Residente
-* **Consultas**: Puede listar las herramientas disponibles en el sistema.
-* **Autogestión**: Puede registrar sus propios préstamos indicando la fecha estimada de devolución.
+- **Consultas**: Listar herramientas disponibles.
+- **Autogestión**: Solicitar préstamos y devoluciones.
 
----
+## Persistencia de Datos
 
-## 📂 Persistencia de Datos
-El sistema utiliza archivos **JSON** para almacenar la información de manera local:
-* `herramientas.json`: Almacena el catálogo y stock.
-* `prestamos.json`: Guarda el historial de transacciones.
-* `residente_r.json` / `admin_r.json`: Contiene los perfiles de usuario.
-* `contraseñas_residente.json` / `contraseñas_admin.json`: Almacena las credenciales de acceso de forma separada.
+Los datos se almacenan en archivos **JSON** dentro del directorio `data/`:
 
----
+| Archivo | Contenido |
+|---|---|
+| `herramientas.json` | Catálogo y stock de herramientas |
+| `prestamos.json` | Historial de préstamos |
+| `residente_r.json` | Perfiles de residentes |
+| `admin_r.json` | Perfiles de administradores |
+| `contraseñas_residente.json` | Credenciales de residentes |
+| `contraseñas_admin.json` | Credenciales de administradores |
 
-## ⚠️ Notas Técnicas
-* **Validaciones**: El código incluye bloques `try-except` para manejar errores de entrada de datos (ValueError) y archivos no encontrados.
-* **ID Automático**: Las herramientas y préstamos generan sus identificadores de forma incremental basándose en los datos existentes.
+Los eventos del sistema se registran en `registros/eventos.log`.
 
+## Notas Técnicas
 
-# ARCHIVO MARKDOWN
-
-https://drive.google.com/file/d/1MehqPAfHe536uin6slYMzkvEnEDlKb7e/view?usp=sharing
+- **Validaciones**: Bloques `try-except` para manejo de errores de entrada y archivos.
+- **ID automático**: Herramientas y préstamos generan IDs incrementales.
+- **Modularidad**: Separación en módulos dentro del paquete `src/`.
+- **Logging**: Registro de eventos con funciones de respaldo y consulta.
